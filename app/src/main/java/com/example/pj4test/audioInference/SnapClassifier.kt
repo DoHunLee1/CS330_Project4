@@ -102,17 +102,12 @@ class SnapClassifier {
 
         val output_0 = output[0].categories.find { it.label == "Screaming" || it.label == "Thump, thud" || it.label == "Slam"
                 || it.label == "Smash, crash" || it.label == "Shout" || it.label == "Yell"}
-
         if(output_0 == null){
-
             val output_1 = output[1].categories.find { it.label == "Screaming" || it.label == "Thump, thud" || it.label == "Slam"
                     || it.label == "Smash, crash" || it.label == "Shout" || it.label == "Yell"}
-
             if(output_1 == null){
-
                 val output_2 = output[2].categories.find { it.label == "Screaming" || it.label == "Thump, thud" || it.label == "Slam"
                         || it.label == "Smash, crash" || it.label == "Shout" || it.label == "Yell"}
-
                 return output_2!!.score
             }else{
                 return output_1.score
@@ -120,9 +115,6 @@ class SnapClassifier {
         }else{
             return output_0.score
         }
-
-//        return output[0].categories.find { it.label == "Screaming" || it.label == "Thump, thud" || it.label == "Slam"
-//                || it.label == "Smash, crash" || it.label == "Shout" || it.label == "Yell"}!!.score
     }
 
     fun startInferencing() {
@@ -172,7 +164,7 @@ class SnapClassifier {
     companion object {
         const val TAG = "HornClassifier"
 
-        const val REFRESH_INTERVAL_MS = 33L
+        const val REFRESH_INTERVAL_MS = 100L
         const val YAMNET_MODEL = "yamnet_classification.tflite"
 
         const val THRESHOLD = 0.1f

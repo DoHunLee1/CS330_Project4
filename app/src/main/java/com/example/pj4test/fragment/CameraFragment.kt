@@ -210,27 +210,20 @@ class CameraFragment : Fragment(), PersonClassifier.DetectorListener {
             val result = bundle.getString("bundleKey")
 
             if (result == "Accident") {
-
                 camera_on_interval = 30 * 20 // 20 seconds
-                // camera_on_interval = 30 * 600 // 10 minutes in real situation
+//                camera_on_interval = 30 * 600 // 10 minutes in real situation
                 accident_time = 0.0
-
                 if(!state) {
-
                     startCamera()
                     if(!is_audio_accident){
                         is_phone_call = false
                         is_audio_accident = true
                         accident_time = 0.0
                     }
-
                     state = true
-
                     Log.d("Camera", "Camera On")
                 }
-
             }else {
-
                 if(state && camera_on_interval <= 0) {
                     shutdownCamera()
                     val delayInMillis: Long = 500 // Delay of 0.5 seconds
@@ -292,7 +285,6 @@ class CameraFragment : Fragment(), PersonClassifier.DetectorListener {
             val isPersonDetected: Boolean = results!!.find { it.categories[0].label == "person" } != null
 
             val newPerson = results!!.find {it.categories[0].label == "person"}
-
             camera_on_interval -= 1
             // change UI according to the result
             if (isPersonDetected) {

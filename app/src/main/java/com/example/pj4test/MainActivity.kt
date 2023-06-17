@@ -46,9 +46,9 @@ class MainActivity : AppCompatActivity(), OnSendCallListener {
     }
 
     private fun makeEmergencyCall() {
-        val phoneNumber = "01047513726"
-//        val callIntent = Intent(Intent.ACTION_CALL) // When we use call immediately
-        val callIntent = Intent(Intent.ACTION_DIAL)
+        val phoneNumber = "01047513726" // You can change phone number when you needed
+//        val callIntent = Intent(Intent.ACTION_CALL) // When we use call immediately in real situation
+        val callIntent = Intent(Intent.ACTION_DIAL)  // I use Dial because Galaxy Tab does not use phone call
         callIntent.data = Uri.parse("tel:$phoneNumber")
 
         Log.d("Call", "EmergencyCall")
